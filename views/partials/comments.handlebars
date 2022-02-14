@@ -1,15 +1,20 @@
-<div class="comments">
+<div class="comments post container bg-light">
 	{{#each this}}
-		<section class="comment">
-			<div class="meta">
-				by
+		<section class="comment flex-row">
+			<div
+				class="comment-text col-12 post-text container text-left text-wrap word-break text-primary"
+			>
+				{{comment_text}}
+			</div>
+			<div
+				class="align-text-right text-wrap word-break border-bottom text-success"
+			>
+				Posted by
 				{{user.username}}
 				on
 				{{format_date created_at}}
 			</div>
-			<div class="text">
-				{{comment_text}}
-			</div>
+
 		</section>
 	{{/each}}
 </div>

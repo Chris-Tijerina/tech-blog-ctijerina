@@ -1,17 +1,33 @@
-<article class="post">
-	<div class="title">
-		<a href="/post/{{id}}">{{title}}</a>
+<div class="post container bg-light">
+	<div class="row bg-light">
+		<div
+			class="title col-8 border border-end-0 bg-success"
+			style="--bs-bg-opacity: .5;"
+		>
+			<a class="text-decoration-none fs-4" href="/post/{{id}}">{{title}}</a>
+		</div>
+		<div
+			class="meta col-4 border border-start-0 bg-success"
+			style="--bs-bg-opacity: .5;"
+		>
+			<div class="align-text-right text-wrap word-break">
+				Posted by
+				{{user.username}}
+				on
+				{{format_date created_at}}
+			</div>
+			<a class="text-decoration-none" href="/post/{{id}}">
+				{{comments.length}}
+				{{format_plural "comment" comments.length}}
+			</a>
+		</div>
 	</div>
-	<div class="post-text">
-		{{post_text}}
+	<div class="row">
+		<div
+			class="post-text container text-left text-wrap word-break border-bottom"
+		>
+			{{post_text}}
+		</div>
 	</div>
-	<div class="meta">
-		by
-		{{user.username}}
-		on
-		{{format_date created_at}}
-		|
-		<a href="/post/{{id}}">{{comments.length}}
-			{{format_plural "comment" comments.length}}</a>
-	</div>
-</article>
+
+</div>
