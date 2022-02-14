@@ -1,38 +1,43 @@
 <article>
 	<a href="/dashboard"> &larr; Back to dashboard</a>
-	<h2>
-		Edit Post
-	</h2>
-	<form class="edit-post-form">
-		<div>
-            Post Title
-			<input name="post-title" type="text" value="{{post.title}}" />
-		</div>
-        <div>
-            Post Text
-            <input name="post-text" type="text" value="{{post.post_text}}" />
-        </div>
-		<div>
-			by you on
-			{{format_date post.created_at}}
-			|
-			<a href="/post/{{post.id}}">{{post.comments.length}}
-				{{format_plural "comment" post.comments.length}}</a>
-		</div>
-		<button type="submit">Save post</button>
-		<button type="button" class="delete-post-btn">Delete post</button>
-	</form>
+		<h2 class="text-center">
+			Edit Post
+		</h2>
+	<div class="d-flex p-2 bd-highlight justify-content-center">
+
+		<form class="edit-post-form d-flex row bg-light border bw-2 rounded justify-content-center col-8">
+			<div class="row col-9 m-2 p-2">
+				Post Title
+				<input name="post-title" type="text" value="{{post.title}}" />
+			</div>
+			<div class="row col-9 m-2 p-2"> 
+				Post Text
+				<input name="post-text" type="text" value="{{post.post_text}}" />
+			</div>
+			<div class="text-wrap word-break text-center mb-4">
+				by you on
+				{{format_date post.created_at}}
+				|
+				<a href="/post/{{post.id}}">{{post.comments.length}}
+					{{format_plural "comment" post.comments.length}}</a>
+			</div>
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Save post</button>
+			<button type="button" class="delete-post-btn btn btn-danger btn-lg btn-block">Delete post</button>
+		</form>
+	</div>
 </article>
 
-<form class="comment-form">
-	<div>
-		<textarea name="comment-body"></textarea>
-	</div>
+<div class="d-flex p-2 bd-highlight justify-content-center">
+	<form class="comment-form d-flex row">
+		<div class="row col-12">
+			<textarea name="comment-body"></textarea>
+		</div>
 
-	<div>
-		<button type="submit">add comment</button>
-	</div>
-</form>
+		<div class="row">
+			<button type="submit">add comment</button>
+		</div>
+	</form>
+</div>
 
 {{> comments post.comments}}
 
